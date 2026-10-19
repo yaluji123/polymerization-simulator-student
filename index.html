@@ -25,7 +25,6 @@ html,body{background:#e4f2f9;color:var(--ink)}.app{background:radial-gradient(ci
 .formula:has(.poly-branch){padding:10px 15px 56px}.formula:has(.poly-phenyl){padding-bottom:64px}.formula:has(.poly-mma){top:5px;padding-top:53px;padding-bottom:46px}.poly-branch{display:inline-flex;align-items:baseline;white-space:nowrap;line-height:1}.poly-main,.poly-carbon{font:inherit;line-height:1;white-space:nowrap}.poly-carbon{position:relative;display:inline-block}.poly-side{position:absolute;left:50%;transform:translateX(-50%);font:inherit;line-height:1;white-space:nowrap}.poly-side.lower{top:calc(100% + 20px)}.poly-side.upper{bottom:calc(100% + 20px)}.poly-carbon:after,.poly-carbon.has-upper:before{content:"";position:absolute;left:50%;width:2px;height:15px;background:#456e86;transform:translateX(-50%)}.poly-carbon:after{top:calc(100% + 2px)}.poly-carbon.has-upper:before{bottom:calc(100% + 2px)}.poly-side.ring{top:calc(100% + 14px);color:#e68e2e}.poly-side.ring svg{display:block;width:38px;height:38px}.formula .monomer-phenyl{display:inline-flex;align-items:center;vertical-align:middle;color:#e68e2e}.formula .monomer-phenyl svg{display:block;width:52px;height:38px}
 .stage:has(.poly-branch) .stage-top{min-height:470px}.chain-overview{position:relative;left:auto;right:auto;bottom:auto;z-index:1;margin:8px 16px 0;background:#ffffffed}
 @media(max-width:500px){.chain-overview-head{flex-direction:column;gap:2px;font-size:11px}.chain-overview-head span:first-child{white-space:normal}}
-@media(max-width:850px){.top{flex-wrap:wrap}.modes{flex-wrap:wrap}}
 /* 投屏与笔记本矮屏：压缩页面外框，保留模型、结构式和操作区。 */
 .lab{margin-top:12px}
 @media (min-width:1101px){.lab{margin-top:14px;grid-template-columns:minmax(245px,23%) minmax(480px,1fr) minmax(280px,25%)}}
@@ -45,8 +44,48 @@ html,body{background:#e4f2f9;color:var(--ink)}.app{background:radial-gradient(ci
   .growth{margin-top:7px;padding:7px 11px;border-radius:12px}.growth-top strong{font-size:12px}.growth-top span{font-size:11px}.growth-steps{margin-top:4px}.growth-step{padding:4px 8px;font-size:11px}.growth-step b{display:inline;margin:0 5px 0 0;font-size:11px}.final-line{margin-top:4px;font-size:12px}
 }
 @media (min-width:900px) and (max-width:1100px) and (max-height:850px){.unlock{grid-column:auto}.stage{min-height:0}.lab{grid-template-columns:minmax(205px,25%) minmax(390px,1fr) minmax(210px,26%)}}
+@media (min-width:600px) and (max-width:899px) and (max-height:850px){
+  .app{padding:8px 14px 10px;min-height:100dvh}.top{gap:10px;align-items:center}.brand h1{font-size:25px}.brand p{margin-top:0;font-size:12px}.modes{padding:3px;flex-direction:row}.mode{padding:6px 8px}
+}
 @media (min-width:1101px) and (min-height:851px){.app:has(.final-line.show) .stage{min-height:max(590px,calc(100dvh - 300px))}}
 @media (min-width:900px) and (max-height:850px){.app:has(.final-line.show) .stage{height:clamp(445px,calc(100dvh - 163px),680px)}}
+/* 视觉升级：在原三栏实验台上建立柔和的光学玻璃层次。 */
+:root{--ink:#103b67;--muted:#6689aa;--line:rgba(106,164,209,.43);--shadow:0 16px 38px rgba(77,130,177,.18)}
+html,body{background:#eaf6ff;color:var(--ink)}
+.app{background:radial-gradient(ellipse at 15% -10%,rgba(119,196,251,.42),transparent 35%),radial-gradient(ellipse at 86% 2%,rgba(170,199,255,.3),transparent 39%),linear-gradient(125deg,#e6f5ff 0%,#f6fbff 48%,#e9f4ff 100%)}
+.brand h1{color:#073865;text-shadow:0 2px 14px rgba(255,255,255,.9);letter-spacing:-.045em}.brand p{color:#537ca0}
+.modes{border:1px solid rgba(117,171,218,.55);background:rgba(255,255,255,.87);box-shadow:0 9px 24px rgba(69,124,178,.2),inset 0 1px #fff}
+.mode{color:#073c6c}.mode.active{background:linear-gradient(135deg,#168cf4,#27b6da);box-shadow:0 5px 16px rgba(27,147,219,.35),inset 0 1px rgba(255,255,255,.55);color:white}
+.panel{border-color:#a9cde8;background:linear-gradient(135deg,rgba(255,255,255,.97),rgba(235,247,255,.94));box-shadow:var(--shadow),inset 0 1px #fff}
+.panel:before{background:linear-gradient(119deg,transparent 18%,rgba(255,255,255,.19) 36%,transparent 55%)}
+.panel-head h2{color:#073966}.eyebrow{color:#3aa9e7}
+.skeleton{border-color:#b6daf0;background:radial-gradient(circle at 48% 25%,#fff 0%,#f2fbff 45%,#e7f5fd 100%);box-shadow:inset 0 2px 12px rgba(81,163,214,.07)}
+.slot{border-color:#55afe4;background:rgba(255,255,255,.55);color:#1589be}
+.block,.monomer-card{border-color:#b9dbef;background:linear-gradient(145deg,#fff,#ecf8ff);box-shadow:0 7px 15px rgba(79,148,197,.13),inset 0 1px #fff;color:#15496c}
+.block:hover,.monomer-card:hover{border-color:#32b5e9;box-shadow:0 8px 18px rgba(63,162,221,.2)}
+.reset{background:linear-gradient(#fff,#f4fbff);border-color:#8fc7e8;color:#437da3;box-shadow:0 5px 13px rgba(88,150,195,.09)}
+.stage-top{isolation:isolate;border-color:#aacfe7;background:radial-gradient(ellipse at 50% 9%,rgba(255,255,255,.98),transparent 35%),radial-gradient(ellipse at 16% 13%,rgba(255,255,255,.65),transparent 28%),radial-gradient(ellipse at 83% 13%,rgba(255,255,255,.56),transparent 27%),linear-gradient(180deg,#eaf7ff 0%,#f8fcff 47%,#e7f5fc 100%);box-shadow:inset 0 1px #fff,inset 0 0 52px rgba(102,164,216,.13)}
+.stage-top:before{content:"";position:absolute;z-index:0;left:14%;right:14%;bottom:13%;height:13%;border:2px solid rgba(255,255,255,.94);border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.66),rgba(179,223,246,.2) 58%,transparent 75%);box-shadow:0 0 16px rgba(255,255,255,.95),0 0 34px rgba(72,164,225,.23),inset 0 0 14px rgba(255,255,255,.9);pointer-events:none}
+.stage-top:after{z-index:0;left:24%;right:24%;bottom:11%;height:9%;background:radial-gradient(ellipse,rgba(73,117,157,.31),transparent 72%);filter:blur(12px)}
+.stage-top canvas{z-index:1}.formula{border-color:#c4e2f1;background:rgba(255,255,255,.92);box-shadow:0 9px 26px rgba(66,132,184,.15),inset 0 1px #fff;color:#073865}
+.phase-track{background:#bbd4e6}.phase-track i{background:linear-gradient(90deg,#238ce7,#31c2e5,#8fdef4)}.phase-labels{color:#638db0}.phase-labels span.on{color:#147fb7}
+.message{color:#5680a0}.polymerize{background:linear-gradient(135deg,#188df0,#30bcd9);box-shadow:0 9px 19px rgba(51,152,211,.24),inset 0 1px rgba(255,255,255,.5)}.polymerize:disabled{background:linear-gradient(115deg,#a8bed2,#a7c9d1);filter:none;opacity:.9;box-shadow:0 5px 15px rgba(75,121,154,.15);color:white}
+.unknown{border-color:#c3daed;background:radial-gradient(circle at 50% 13%,#fff,#eaf5ff 82%)}.material-card{border-color:#70c1ed;background:linear-gradient(150deg,#fff,#eaf8ff);box-shadow:0 9px 20px rgba(78,143,187,.16)}.material-card.unknown-card .code{color:#90acc1}
+.fact,.degree{border-color:#b9d9ee;background:linear-gradient(145deg,#fcfeff,#f1faff)}.degree output{color:#25b8d8}.degree input,.ratio input{accent-color:#2dbbdc}
+.growth{border-color:#b4d4ea;background:rgba(255,255,255,.9);box-shadow:0 10px 25px rgba(83,141,187,.14)}.growth-step{background:linear-gradient(105deg,#e8f8ff,#eef2ff)}.growth-step.on{box-shadow:inset 4px 0 #20b2d3}
+@media (min-width:1101px){.lab{grid-template-columns:minmax(245px,26%) minmax(480px,1fr) minmax(280px,25%)}}
+@media (min-width:900px) and (max-height:850px){
+ .app{padding:13px clamp(14px,2vw,30px) 12px}.brand h1{font-size:34px}.brand p{margin-top:2px;font-size:13px}.modes{padding:4px}.mode{padding:8px 14px;font-size:14px}
+ .lab{margin-top:12px;gap:10px}.panel{border-radius:20px}.panel-head{padding:13px 16px 9px}.panel-head h2{font-size:20px}.eyebrow{font-size:10px}
+ .design,.unlock{padding:0 11px 11px}.skeleton{min-height:120px;margin:2px 0 8px;font-size:25px}.slot{height:40px;flex-basis:40px}.section-label{margin:8px 1px 7px;font-size:12px}.blocks{gap:7px}.block,.monomer-card{min-height:68px;padding:8px 7px;font-size:15px}.block small,.monomer-card small{font-size:11px;margin-top:2px}.reset{margin-top:10px;padding:10px}
+ .stage{height:clamp(455px,calc(100dvh - 220px),660px)}.stage-top{margin:0 11px}.stage-controls{padding:10px 12px 13px}.message{min-height:28px;font-size:13px}.polymerize{margin-top:8px;padding:10px 16px;font-size:16px}
+ .unknown{min-height:150px;margin:2px 0 10px}.material-card{padding:13px}.material-card .code{font-size:31px}.material-card .name{font-size:16px}.material-card .trait{font-size:11px}.facts{gap:6px}.fact{padding:9px 10px}.fact label{font-size:11px}.fact b{font-size:15px}.degree{margin-top:9px;padding:10px}.degree-head{font-size:13px}.degree output{font-size:19px}.degree-note{font-size:11px}
+ .growth{margin-top:10px;padding:9px 14px;border-radius:16px}.growth-top strong{font-size:13px}.growth-top span{font-size:11px}.growth-steps{margin-top:7px}.growth-step{padding:8px 10px;font-size:12px}.growth-step b{display:block;margin-bottom:2px;font-size:13px}
+}
+@media (min-width:1101px) and (max-height:850px){.lab{grid-template-columns:minmax(245px,26%) minmax(480px,1fr) minmax(280px,25%)}}
+@media (min-width:1101px) and (max-height:760px){.app{padding-bottom:6px}.stage{height:clamp(445px,calc(100dvh - 228px),660px)}.growth{margin-top:8px}}
+
+@media(max-width:850px){.top{flex-wrap:wrap}.modes{flex-wrap:wrap}}
 </style>
 </head>
 <body><main class="app" id="app">
@@ -58,7 +97,7 @@ html,body{background:#e4f2f9;color:var(--ink)}.app{background:radial-gradient(ci
   <div class="mix-library"><div class="section-label"><span>单体库</span><span>选择两种</span></div><button class="monomer-card" data-m="ethylene">乙烯　CH₂=CH₂<small>双键碳各连两个氢</small></button><button class="monomer-card" data-m="propylene">丙烯　CH₂=CHCH₃<small>完整甲基：一个碳、三个氢</small></button><button class="monomer-card" data-m="vinyl-acetate">醋酸乙烯　CH₂=CH—OCOCH₃<small>双键碳先连接氧：—O—C(=O)—CH₃</small></button><button class="monomer-card" data-m="styrene">苯乙烯　CH₂=CHC₆H₅<small>六元苯环，环上保留五个氢</small></button><button class="monomer-card" data-m="mma">甲基丙烯酸甲酯（MMA）<small>CH₂=C(CH₃)COOCH₃；保留两个完整取代基</small></button></div>
   <button class="reset" id="reset">清空实验台</button>
  </section>
- <section class="panel stage"><div class="panel-head"><div><div class="eyebrow">REACTION CHAMBER</div><h2>聚合反应舞台</h2></div><span class="eyebrow">02</span></div><div class="stage-top"><div class="formula" id="formula">CH₂=C( R₁ )( R₂ )</div><canvas id="canvas" aria-label="单体与聚合物球棍模型动画，可拖动旋转并通过滚轮或双指缩放"></canvas><div class="phase"><div class="phase-track"><i id="phaseBar"></i></div><div class="phase-labels"><span>单体出现</span><span>C=C 高亮</span><span>形成新键</span><span>长链延伸</span></div></div></div><div class="chain-overview" id="chainOverview" aria-live="polite"><div class="chain-overview-head"><span id="chainCaption">链长示意</span><span id="chainCount">n = 10</span></div><div class="chain-overview-track" id="chainTrack"></div></div><div class="stage-controls"><div class="message" id="message">选择两个结构积木，设计一个可以发生加聚反应的单体。</div><button class="polymerize" id="polymerize" disabled>▶ 开始聚合</button><div class="ratio" id="ratio"><div class="ratio-line"><span><span id="ratioNameA">乙烯</span> <b id="ratioA">50%</b></span><span><b id="ratioB">50%</b> <span id="ratioNameB">醋酸乙烯</span></span></div><input id="ratioRange" type="range" min="0" max="100" step="25" value="50" aria-label="第一种单体投料比例"><div class="ratio-ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div></div></section>
+ <section class="panel stage"><div class="panel-head"><div><div class="eyebrow">REACTION CHAMBER</div><h2>聚合反应舞台</h2></div><span class="eyebrow">02</span></div><div class="stage-top"><div class="formula" id="formula">CH₂=C( R₁ )( R₂ )</div><canvas id="canvas" aria-label="单体与聚合物球棍模型动画，可拖动旋转并通过滚轮或双指缩放"></canvas><div class="phase"><div class="phase-track"><i id="phaseBar"></i></div><div class="phase-labels"><span>单体出现</span><span>双键分成半键</span><span>半键相接</span><span>长链延伸</span></div></div></div><div class="chain-overview" id="chainOverview" aria-live="polite"><div class="chain-overview-head"><span id="chainCaption">链长示意</span><span id="chainCount">n = 10</span></div><div class="chain-overview-track" id="chainTrack"></div></div><div class="stage-controls"><div class="message" id="message">选择两个结构积木，设计一个可以发生加聚反应的单体。</div><button class="polymerize" id="polymerize" disabled>▶ 开始聚合</button><div class="ratio" id="ratio"><div class="ratio-line"><span><span id="ratioNameA">乙烯</span> <b id="ratioA">50%</b></span><span><b id="ratioB">50%</b> <span id="ratioNameB">醋酸乙烯</span></span></div><input id="ratioRange" type="range" min="0" max="100" step="25" value="50" aria-label="第一种单体投料比例"><div class="ratio-ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div></div></section>
  <aside class="panel unlock"><div class="panel-head"><div><div class="eyebrow">MATERIAL VIEW</div><h2>材料观察区</h2></div><span class="eyebrow">03</span></div><div class="unknown"><div class="material-card unknown-card" id="materialCard"><div class="code" id="materialCode">?</div><div class="name" id="materialName">未知高分子</div><div class="trait" id="materialTrait">完成聚合后查看</div></div></div><div class="facts"><div class="fact"><label>单体</label><b id="factMonomer">—</b></div><div class="fact"><label>链节 / 序列示意</label><b id="factUnit">—</b></div><div class="fact"><label>聚合物名称</label><b id="factName">—</b></div></div><div class="degree"><div class="degree-head"><label for="degree">聚合度 n</label><output id="degreeValue">10</output></div><input id="degree" type="range" min="0" max="3" value="1"><div class="ticks"><span>5</span><span>10</span><span>20</span><span>50</span></div><div class="degree-note">聚合完成后，观察链节数量与局部球棍结构的变化。</div></div><div class="compare"><div class="chains"><span>均聚<b>A—A—A—A</b></span><span>共聚<b>A—B—A—A—B</b></span></div></div></aside>
  </div>
 <section class="growth"><div class="growth-top"><strong>高分子材料设计的两个方向</strong><span id="growthStatus">任选两个取代基</span></div><div class="growth-steps"><div class="growth-step on" id="growth1"><b>改变取代基</b>PE、PP、PS、PMMA 等</div><div class="arrow">＋</div><div class="growth-step" id="growth3"><b>组合单体 / 比例</b>单一单体与多种单体</div></div><div class="final-line" id="finalLine">改变单体，就能改变高分子结构；组合单体，又打开了新的材料设计空间。</div></section>
@@ -100,15 +139,14 @@ function unit(x,y,g1,g2,s=.55,double=true){const sep=74*s,lx=x-sep/2,rx=x+sep/2,
 function drawEthene(x,y,s=1){const d=67*s,hy=68*s,hx=42*s,rC=29*s,rH=25*s;stick(x-d,y,x+d,y,true,1,17*s);for(const side of [-1,1]){const cx=x+side*d;for(const vertical of [-1,1]){const px=cx+side*hx,py=y+vertical*hy;stick(cx,y,px,py,false,1,11*s);sphere(px,py,rH,'#f8fbfd','H',false)}}sphere(x-d,y,rC,'#323a40','C',false);sphere(x+d,y,rC,'#323a40','C',false)}
 function ease(v){const x=Math.max(0,Math.min(1,v));return x*x*(3-2*x)}
 function drawPEReaction(p){
- const units=3,step=Math.min(82,(W-100)/(units*2-1)),y=H*.52,zig=Math.min(26,step*.34),approach=ease((p-.05)/.18),opened=ease((p-.25)/.42),joined=ease((p-.74)/.18),rC=Math.min(22,step*.28),rH=rC*.76;
+  const units=3,step=Math.min(82,(W-100)/(units*2-1)),y=H*.52,zig=Math.min(26,step*.34),approach=ease((p-.05)/.18),joined=ease((p-.73)/.14),rC=Math.min(22,step*.28),rH=rC*.76;
  const carbons=[],hydrogens=[];
  for(let i=0;i<units*2;i++){
   const u=Math.floor(i/2),side=i%2?-1:1,sourceX=W/2+(u-1)*Math.min(W*.30,205)+side*30,sourceY=y,targetX=W/2+(i-2.5)*step,targetY=y+(i%2?zig:-zig);
   const c={x:sourceX+(targetX-sourceX)*approach,y:sourceY+(targetY-sourceY)*approach};carbons.push(c);
   for(const v of [-1,1]){const sx=sourceX+side*24,sy=y+v*42,tx=targetX+v*20,ty=targetY+(i%2?1:-1)*Math.min(48,step*.63);hydrogens.push({carbon:i,x:sx+(tx-sx)*approach,y:sy+(ty-sy)*approach})}
  }
- for(let i=0;i<units;i++){const a=carbons[i*2],b=carbons[i*2+1];drawOpeningBond(a,b,opened,p,Math.min(10,step*.13))}
- for(let i=1;i<units;i++){const a=carbons[i*2-1],b=carbons[i*2];if(joined>0)stick(a.x,a.y,b.x,b.y,false,joined,Math.min(10,step*.13))}
+  drawSingleBondTransfer(carbons,p,Math.min(10,step*.13));
  hydrogens.forEach(h=>{const c=carbons[h.carbon];stick(c.x,c.y,h.x,h.y,false,1,Math.min(7,step*.09))});
   carbons.forEach(c=>sphere(c.x,c.y,rC,'#323a40','C',false));hydrogens.forEach(h=>sphere(h.x,h.y,rH,'#f8fbfd','H',false));
   if(joined>0)drawChainEllipses(carbons[0],carbons[carbons.length-1],joined);
@@ -120,7 +158,7 @@ function drawPropene(x,y,s=1){
  sphere(c0.x,c0.y,29*s,'#323a40','C',false);sphere(c1.x,c1.y,29*s,'#323a40','C',false);sphere(m.x,m.y,27*s,'#ee6677','C',false);h.forEach(a=>sphere(a.x,a.y,22*s,'#f8fbfd','H',false));
 }
 function drawPPReaction(p){
- const units=3,step=Math.min(80,(W-105)/(units*2-1)),y=H*.46,zig=Math.min(25,step*.32),approach=ease((p-.05)/.18),opened=ease((p-.25)/.42),joined=ease((p-.74)/.18),rC=Math.min(22,step*.28),rH=rC*.73;
+  const units=3,step=Math.min(80,(W-105)/(units*2-1)),y=H*.46,zig=Math.min(25,step*.32),approach=ease((p-.05)/.18),joined=ease((p-.73)/.14),rC=Math.min(22,step*.28),rH=rC*.73;
  const backbone=[],methyl=[],hydrogens=[];
  const move=(sx,sy,tx,ty)=>({x:sx+(tx-sx)*approach,y:sy+(ty-sy)*approach});
  for(let u=0;u<units;u++){
@@ -135,8 +173,8 @@ function drawPPReaction(p){
   hydrogens.push({parent:'m',index:u,...move(base+73,y+77,mx+22,my+dir*31)});
   hydrogens.push({parent:'m',index:u,...move(base+51,y+97,mx,my+dir*48)});
  }
- for(let u=0;u<units;u++){const a=backbone[2*u],b=backbone[2*u+1],m=methyl[u];drawOpeningBond(a,b,opened,p,Math.min(10,step*.13));stick(b.x,b.y,m.x,m.y,false,1,Math.min(8,step*.1));}
- for(let u=1;u<units;u++){const a=backbone[2*u-1],b=backbone[2*u];if(joined>0)stick(a.x,a.y,b.x,b.y,false,joined,Math.min(10,step*.13))}
+  drawSingleBondTransfer(backbone,p,Math.min(10,step*.13));
+  for(let u=0;u<units;u++){const b=backbone[2*u+1],m=methyl[u];stick(b.x,b.y,m.x,m.y,false,1,Math.min(8,step*.1))}
  hydrogens.forEach(h=>{const a=h.parent==='b'?backbone[h.index]:methyl[h.index];stick(a.x,a.y,h.x,h.y,false,1,Math.min(7,step*.09))});
   backbone.forEach(a=>sphere(a.x,a.y,rC,'#323a40','C',false));methyl.forEach(a=>sphere(a.x,a.y,rC*.92,'#ee6677','C',false));hydrogens.forEach(a=>sphere(a.x,a.y,rH,'#f8fbfd','H',false));
   if(joined>0)drawChainEllipses(backbone[0],backbone[backbone.length-1],joined);
@@ -163,10 +201,10 @@ function makeChemUnit(kind,cx,cy,s,poly=false){
 }
 function renderChemUnit(model,opened=0){const {atoms,bonds}=model;for(const b of bonds){const a=atoms[b.a],z=atoms[b.b],w=Math.min(10,Math.max(4,a.r*.42));if(b.dynamic){stick(a.x,a.y,z.x,z.y,false,opened,w);if(opened<1)stick(a.x,a.y,z.x,z.y,true,1-opened,w)}else stick(a.x,a.y,z.x,z.y,b.order===2,1,w)}for(const a of atoms)sphere(a.x,a.y,a.r,a.tint||'#f8fbfd',a.el,false)}
 function drawChemReaction(kind,p){
- const approach=ease((p-.05)/.18),opened=ease((p-.25)/.42),joined=ease((p-.74)/.18),cy=kind==='styrene'?H*.37:H*.43,sourceScale=kind==='styrene'?.64:.61,targetScale=kind==='styrene'?.76:.72,sourceSpread=Math.min(W*.30,210),targetSpread=kind==='styrene'?Math.min(W*.15,95):Math.min(W*.16,102),models=[];
+  const approach=ease((p-.05)/.18),joined=ease((p-.73)/.14),cy=kind==='styrene'?H*.37:H*.43,sourceScale=kind==='styrene'?.64:.61,targetScale=kind==='styrene'?.76:.72,sourceSpread=Math.min(W*.30,210),targetSpread=kind==='styrene'?Math.min(W*.15,95):Math.min(W*.16,102),models=[];
  for(let u=0;u<2;u++){const offset=u?1:-1,source=makeChemUnit(kind,W/2+offset*sourceSpread,cy,sourceScale),target=makeChemUnit(kind,W/2+offset*targetSpread,cy,targetScale,true),atoms=source.atoms.map((a,i)=>({el:a.el,tint:a.tint,x:a.x+(target.atoms[i].x-a.x)*approach,y:a.y+(target.atoms[i].y-a.y)*approach,r:a.r+(target.atoms[i].r-a.r)*approach}));models.push({atoms,bonds:source.bonds})}
- for(const m of models){for(const b of m.bonds){const a=m.atoms[b.a],z=m.atoms[b.b],w=Math.min(10,Math.max(4,a.r*.42));if(b.dynamic)drawOpeningBond(a,z,opened,p,w);else stick(a.x,a.y,z.x,z.y,b.order===2,1,w)}}
- if(joined>0){const a=models[0].atoms[1],b=models[1].atoms[0];stick(a.x,a.y,b.x,b.y,false,joined,Math.min(10,a.r*.42))}
+  drawSingleBondTransfer(models.flatMap(m=>m.atoms.slice(0,2)),p,Math.min(10,Math.max(4,models[0].atoms[0].r*.42)));
+  for(const m of models){for(const b of m.bonds){if(b.dynamic)continue;const a=m.atoms[b.a],z=m.atoms[b.b],w=Math.min(10,Math.max(4,a.r*.42));stick(a.x,a.y,z.x,z.y,b.order===2,1,w)}}
   for(const m of models)for(const a of m.atoms)sphere(a.x,a.y,a.r,a.tint||'#f8fbfd',a.el,false)
   if(joined>0)drawChainEllipses(models[0].atoms[0],models[models.length-1].atoms[1],joined)
 }
@@ -197,10 +235,10 @@ function makeCustomUnit(slots,cx,cy,s,poly=false){
  return{atoms,bonds}
 }
 function drawCustomReaction(slots,p){
- const approach=ease((p-.05)/.18),opened=ease((p-.25)/.42),joined=ease((p-.74)/.18),cy=H*.52,sourceSpread=Math.min(W*.28,190),targetSpread=Math.min(W*.15,100),models=[];
+  const approach=ease((p-.05)/.18),joined=ease((p-.73)/.14),cy=H*.52,sourceSpread=Math.min(W*.28,190),targetSpread=Math.min(W*.15,100),models=[];
  for(let u=0;u<2;u++){const side=u?1:-1,source=makeCustomUnit(slots,W/2+side*sourceSpread,cy,.58),target=makeCustomUnit(slots,W/2+side*targetSpread,cy,.52,true),atoms=source.atoms.map((a,i)=>({el:a.el,tint:a.tint,x:a.x+(target.atoms[i].x-a.x)*approach,y:a.y+(target.atoms[i].y-a.y)*approach,r:a.r+(target.atoms[i].r-a.r)*approach}));models.push({atoms,bonds:source.bonds})}
- for(const m of models)for(const b of m.bonds){const a=m.atoms[b.a],z=m.atoms[b.b],w=Math.min(10,Math.max(4,a.r*.42));if(b.dynamic)drawOpeningBond(a,z,opened,p,w);else stick(a.x,a.y,z.x,z.y,b.order===2,1,w)}
- if(joined>0){const a=models[0].atoms[1],b=models[1].atoms[0];stick(a.x,a.y,b.x,b.y,false,joined,Math.min(10,a.r*.42))}
+  drawSingleBondTransfer(models.flatMap(m=>m.atoms.slice(0,2)),p,Math.min(10,Math.max(4,models[0].atoms[0].r*.42)));
+  for(const m of models)for(const b of m.bonds){if(b.dynamic)continue;const a=m.atoms[b.a],z=m.atoms[b.b],w=Math.min(10,Math.max(4,a.r*.42));stick(a.x,a.y,z.x,z.y,b.order===2,1,w)}
  for(const m of models)for(const a of m.atoms)sphere(a.x,a.y,a.r,a.tint||'#f8fbfd',a.el,false);
  if(joined>0)drawChainEllipses(models[0].atoms[0],models[1].atoms[1],joined)
 }
@@ -227,12 +265,45 @@ function makeMixUnit(type,cx,cy,s,poly=false){
 function drawMixScene(p){
  if(!state.mix.length)return;
  if(!state.anim&&!state.mixedPolymerized&&p===0){const selected=state.mix.length===1?state.mix:orderedMix(),ratio=+$('#ratioRange').value,pair=selected.length<2?selected:ratio===0?[selected[1]]:ratio===100?[selected[0]]:selected,scale=pair.length===1?.82:.63,offset=pair.length===1?0:Math.min(W*.22,145);pair.forEach((type,i)=>renderChemUnit(makeMixUnit(type,W/2+(pair.length===1?0:i?offset:-offset),H*.36,scale)));return}
- const sequence=mixSequence(),step=Math.min(W*.165,103),sourceStep=Math.min(W*.19,115),y=H*.35,approach=ease((p-.05)/.18),opened=ease((p-.25)/.42),joined=ease((p-.74)/.18),models=[];
+ const sequence=mixSequence(),step=Math.min(W*.165,103),sourceStep=Math.min(W*.19,115),y=H*.35,approach=ease((p-.05)/.18),joined=ease((p-.72)/.15),models=[];
  sequence.forEach((type,i)=>{const source=makeMixUnit(type,W/2+(i-2)*sourceStep,y,.48),target=makeMixUnit(type,W/2+(i-2)*step,y,.48,true),atoms=source.atoms.map((a,j)=>({el:a.el,tint:a.tint,x:a.x+(target.atoms[j].x-a.x)*approach,y:a.y+(target.atoms[j].y-a.y)*approach,r:a.r}));models.push({atoms,bonds:source.bonds})});
- for(const m of models)for(const b of m.bonds){const a=m.atoms[b.a],z=m.atoms[b.b],w=Math.min(9,Math.max(3,a.r*.42));if(b.dynamic)drawOpeningBond(a,z,opened,p,w);else stick(a.x,a.y,z.x,z.y,b.order===2,1,w)}
- if(joined>0)for(let i=1;i<models.length;i++){const a=models[i-1].atoms[1],b=models[i].atoms[0];stick(a.x,a.y,b.x,b.y,false,joined,5)}
+ for(const m of models)for(const b of m.bonds){if(b.dynamic)continue;const a=m.atoms[b.a],z=m.atoms[b.b],w=Math.min(9,Math.max(3,a.r*.42));stick(a.x,a.y,z.x,z.y,b.order===2,1,w)}
+ drawSingleBondTransfer(models.flatMap(m=>m.atoms.slice(0,2)),p,Math.max(6,models[0].atoms[0].r*.42));
  for(const m of models)for(const a of m.atoms)sphere(a.x,a.y,a.r,a.tint||'#323a40',a.el,false)
  if(joined>0)drawChainEllipses(models[0].atoms[0],models[models.length-1].atoms[1],joined)
+}
+// 单体与混合单体模式共用：π 键裂成两半，再由相邻的半键相遇组成链节间单键。
+function drawTransferRod(a,b,opacity,width,color='',colorAlpha=0){
+  if(opacity<=.001)return;
+  rawStick(a.x,a.y,b.x,b.y,false,opacity,width);
+  if(!color||colorAlpha<=.001)return;
+  ctx.save();ctx.globalAlpha=opacity*colorAlpha;ctx.lineCap='round';ctx.strokeStyle=color;ctx.lineWidth=Math.max(2,width*.48);ctx.shadowColor=color;ctx.shadowBlur=width*1.15;
+  ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.restore()
+}
+function drawSingleBondTransfer(carbons,p,width){
+  const points=carbons.map(c=>projectPoint(c.x,c.y)),split=ease((p-.23)/.12),pivot=ease((p-.35)/.37),joined=ease((p-.72)/.15),sigmaMove=ease((p-.24)/.24),highlight=ease((p-.16)/.07),mix=(a,b,t)=>({x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t});
+  for(let u=0;u<points.length/2;u++){
+    const a=points[2*u],b=points[2*u+1],dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len,zoom=(a.scale+b.scale)/2,rail=Math.min(8,Math.max(4.8,width*.88))*zoom,rodWidth=width*zoom*.64,center=mix(a,b,.5),axis={x:dx/len,y:dy/len};
+    const offset=(v,d)=>({x:v.x+nx*d,y:v.y+ny*d});
+    // σ 键不消失：只从双键的一条平行轨道平移到单键的中央轨道。
+    drawTransferRod(offset(a,-rail*(1-sigmaMove)),offset(b,-rail*(1-sigmaMove)),1,rodWidth);
+    if(split<=.001){drawTransferRod(offset(a,rail),offset(b,rail),1,rodWidth,'#df754c',highlight);continue}
+    const leftStart=offset(a,rail),rightStart=offset(b,rail),leftCut=offset({x:center.x-axis.x*11*split*zoom,y:center.y-axis.y*11*split*zoom},rail),rightCut=offset({x:center.x+axis.x*11*split*zoom,y:center.y+axis.y*11*split*zoom},rail);
+    const prev=u?points[2*u-1]:null,next=2*u+2<points.length?points[2*u+2]:null;
+    const leftTip=prev?mix(prev,a,.5):{x:a.x-axis.x*34*zoom,y:a.y-axis.y*34*zoom},rightTip=next?mix(b,next,.5):{x:b.x+axis.x*34*zoom,y:b.y+axis.y*34*zoom};
+    // 两个半键的起点仍贴在原双键的两个碳上，游离端逐步转向相邻单体。
+    drawTransferRod(mix(leftStart,a,pivot),mix(leftCut,leftTip,pivot),1-joined,rodWidth,'#df754c',1);
+    drawTransferRod(mix(rightStart,b,pivot),mix(rightCut,rightTip,pivot),1-joined,rodWidth,'#df754c',1)
+  }
+  if(joined>.001){
+    for(let i=1;i<points.length/2;i++){
+      const a=points[2*i-1],b=points[2*i],w=width*(a.scale+b.scale)/2;
+      drawTransferRod(a,b,joined,w,'#10a8c6',Math.sin(Math.PI*joined))
+    }
+    const first=points[0],second=points[1],last=points[points.length-1],before=points[points.length-2],leftLength=Math.hypot(second.x-first.x,second.y-first.y)||1,rightLength=Math.hypot(last.x-before.x,last.y-before.y)||1;
+    drawTransferRod(first,{x:first.x-(second.x-first.x)/leftLength*31,y:first.y-(second.y-first.y)/leftLength*31},joined,width*first.scale*.64);
+    drawTransferRod(last,{x:last.x+(last.x-before.x)/rightLength*31,y:last.y+(last.y-before.y)/rightLength*31},joined,width*last.scale*.64)
+  }
 }
 function drawOpeningBond(a,b,opened,phase,width){
  const p=projectPoint(a.x,a.y),q=projectPoint(b.x,b.y),dx=q.x-p.x,dy=q.y-p.y,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len,zoom=(p.scale+q.scale)/2,gap=Math.min(7,Math.max(4.3,width*.9))*zoom,rodWidth=width*zoom*.62;
@@ -267,12 +338,12 @@ for(const eventName of ['pointerup','pointercancel','lostpointercapture'])stageS
 stageSurface.addEventListener('wheel',e=>{if(e.target.closest('.chain-overview'))return;e.preventDefault();view.zoom=clamp(view.zoom*Math.exp(-e.deltaY*.0012),.55,2.5);redrawScene()},{passive:false});
 new ResizeObserver(()=>resize()).observe(stageSurface);
 function reveal(mat){const c=$('#materialCard');c.classList.remove('unknown-card','reveal');void c.offsetWidth;c.classList.add('reveal');$('#materialCode').textContent=mat.code;$('#materialName').textContent=mat.name;$('#materialTrait').textContent=mat.trait;$('#factMonomer').textContent=mat.monomer;$('#factUnit').textContent=mat.unit;$('#factName').textContent=mat.code==='—'?mat.name:`${mat.code} ${mat.name}`}
-function animateSingle(){if(state.anim||state.slots.length<2)return;const k=keyFor(state.slots),mat=MATERIALS[k];state.anim=true;$('#polymerize').disabled=true;const start=performance.now(),dur=10000;function frame(now){t=Math.min(1,(now-start)/dur);drawScene(t);$('#phaseBar').style.width=t*100+'%';const spans=$$('.phase-labels span');spans.forEach((s,i)=>s.classList.toggle('on',t>[0,.23,.74,.92][i]));$('#message').textContent=t<.23?'多个单体靠近，先观察每个 C=C 的两根键……':t<.25?'蓝色标出即将断开的那一根键。':t<.67?'注意：蓝色的键从中间断开并退去；另一根键始终保留。':t<.74?'双键已变成单键，先停留观察。':t<.92?'相邻单体之间形成新的 C—C 键……':'长链不断延伸，取代基完整保留并重复出现。';if(t<1)requestAnimationFrame(frame);else{state.anim=false;state.last=mat||{code:'—',name:'待研究高分子',trait:'结构示意；实际聚合条件需验证',monomer:singleFormulaText(state.slots),unit:singleFormulaText(state.slots,true)};$('#formula').innerHTML=coloredFormula(state.slots,true);reveal(state.last);if(k==='h,phenyl')toast('结构跟随：橙色苯基没有消失，而是在每个链节上重复。');if(k==='ester,methyl')toast('模型升级：CH₂=CH—R → CH₂=C(R₁)(R₂)');$('#polymerize').disabled=false;$('#message').textContent=mat?'聚合完成：拖动聚合度 n，观察整链长度与局部球棍结构。':'加聚结构示意完成：可调节聚合度观察长链；材料名称与实际可聚合性待研究。';updateChainOverview();drawScene(1)}}requestAnimationFrame(frame)}
-function enterMix(){state.mode='mix';state.mix=[];state.mixedPolymerized=false;clearPhase();hideMaterial();$$('.monomer-card').forEach(c=>c.classList.remove('selected'));$('#ratio').classList.remove('visible');$('#finalLine').classList.remove('show');$('#app').classList.add('mixing');$('#singleMode').classList.remove('active');$('#mixMode').classList.add('active');$('#leftTitle').textContent='单体库';$('#formula').textContent='请选择两种单体';$('#polymerize').textContent='▶ 共同聚合';$('#polymerize').disabled=true;$('#message').textContent='从左侧单体库选择两种不同的完整单体。';$('#growth1').classList.remove('on');$('#growth3').classList.add('on');$('#growthStatus').textContent='调节单体组合与比例';drawScene(0)}
-function enterSingle(){state.mode='single';$('#app').classList.remove('mixing');$('#singleMode').classList.add('active');$('#mixMode').classList.remove('active');$('#leftTitle').textContent='单体设计区';$('#polymerize').textContent='▶ 开始聚合';$('#finalLine').classList.remove('show');$('#growth1').classList.add('on');$('#growth3').classList.remove('on');$('#growthStatus').textContent='任选两个取代基';renderSelection()}
+function animateSingle(){if(state.anim||state.slots.length<2)return;const k=keyFor(state.slots),mat=MATERIALS[k];state.anim=true;$('#polymerize').disabled=true;const start=performance.now(),dur=14000;function frame(now){t=Math.min(1,(now-start)/dur);drawScene(t);$('#phaseBar').style.width=t*100+'%';const spans=$$('.phase-labels span');spans.forEach((s,i)=>s.classList.toggle('on',t>[0,.23,.72,.88][i]));$('#message').textContent=t<.23?'多个单体靠近：先辨认每个 C=C 中并列的两根键。':t<.35?'橙色的一根键从中部裂成两半；另一根始终连接两个碳。':t<.72?'看清两段橙色半键：各自转向相邻单体，并逐渐靠近。':t<.87?'相邻单体的两个半键在中间相接，形成新的 C—C 单键。':'链节连接成长链，原双键保留的那根已成为主链单键。';if(t<1)requestAnimationFrame(frame);else{state.anim=false;state.last=mat||{code:'—',name:'待研究高分子',trait:'结构示意；实际聚合条件需验证',monomer:singleFormulaText(state.slots),unit:singleFormulaText(state.slots,true)};$('#formula').innerHTML=coloredFormula(state.slots,true);reveal(state.last);if(k==='h,phenyl')toast('结构跟随：橙色苯基没有消失，而是在每个链节上重复。');if(k==='ester,methyl')toast('模型升级：CH₂=CH—R → CH₂=C(R₁)(R₂)');$('#polymerize').disabled=false;$('#message').textContent=mat?'聚合完成：拖动聚合度 n，观察整链长度与局部球棍结构。':'加聚结构示意完成：可调节聚合度观察长链；材料名称与实际可聚合性待研究。';updateChainOverview();drawScene(1)}}requestAnimationFrame(frame)}
+function enterMix(){state.mode='mix';state.mix=[];state.mixedPolymerized=false;clearPhase();hideMaterial();$$('.monomer-card').forEach(c=>c.classList.remove('selected'));$('#ratio').classList.remove('visible');$('#finalLine').classList.remove('show');$('#app').classList.add('mixing');$('#singleMode').classList.remove('active');$('#mixMode').classList.add('active');$('#leftTitle').textContent='单体库';$('#formula').textContent='请选择两种单体';$('#polymerize').textContent='▶ 共同聚合';$('#polymerize').disabled=true;$$('.phase-labels span').forEach((s,i)=>s.textContent=['单体出现','双键分成半键','半键相接','长链延伸'][i]);$('#message').textContent='从左侧单体库选择两种不同的完整单体。';$('#growth1').classList.remove('on');$('#growth3').classList.add('on');$('#growthStatus').textContent='调节单体组合与比例';drawScene(0)}
+function enterSingle(){state.mode='single';$('#app').classList.remove('mixing');$('#singleMode').classList.add('active');$('#mixMode').classList.remove('active');$('#leftTitle').textContent='单体设计区';$('#polymerize').textContent='▶ 开始聚合';$$('.phase-labels span').forEach((s,i)=>s.textContent=['单体出现','双键分成半键','半键相接','长链延伸'][i]);$('#finalLine').classList.remove('show');$('#growth1').classList.add('on');$('#growth3').classList.remove('on');$('#growthStatus').textContent='任选两个取代基';renderSelection()}
 $$('.monomer-card').forEach(c=>c.onclick=()=>{if(state.anim)return;state.mixedPolymerized=false;clearPhase();hideMaterial();if(state.mix.includes(c.dataset.m)){state.mix=state.mix.filter(x=>x!==c.dataset.m);c.classList.remove('selected')}else if(state.mix.length<2){state.mix.push(c.dataset.m);c.classList.add('selected')}else{const old=state.mix.shift();$(`[data-m="${old}"]`).classList.remove('selected');state.mix.push(c.dataset.m);c.classList.add('selected')}$('#formula').textContent=state.mix.map(x=>MIX_INFO[x].name).join(' + ')||'请选择两种单体';$('#polymerize').disabled=state.mix.length<2;$('#ratio').classList.toggle('visible',state.mix.length===2);if(state.mix.length===2){const pair=orderedMix();$('#polymerize').textContent='▶ 共同聚合';$('#ratioNameA').textContent=MIX_INFO[pair[0]].name;$('#ratioNameB').textContent=MIX_INFO[pair[1]].name;$('#ratioRange').value=50;$('#ratioA').textContent='50%';$('#ratioB').textContent='50%';$('#ratioRange').setAttribute('aria-label',`${MIX_INFO[pair[0]].name}投料比例`)}$('#message').textContent=state.mix.length===2?'两种完整单体已进入反应槽。可先调节投料比例，再共同聚合。':'再选择一种不同单体。';drawScene(0)});
 function mixResult(){const pair=orderedMix(),ratio=+$('#ratioRange').value,active=ratio===0?pair[1]:ratio===100?pair[0]:null,eva=pair[0]==='ethylene'&&pair[1]==='vinyl-acetate',name=active?MIX_INFO[active].polymer:`${MIX_INFO[pair[0]].name}—${MIX_INFO[pair[1]].name}共聚物`,unit=mixSequence().map(x=>MIX_INFO[x].symbol).join('—')+'（链段示意）';return{code:active?MIX_INFO[active].code:eva?'EVA':'共聚物',name,trait:active?'只有一种单体进入链中，得到均聚物':'两种单体的链节进入同一条链',monomer:active?MIX_INFO[active].formula:pair.map(x=>MIX_INFO[x].formula).join(' + '),unit}}
-function animateMix(){if(state.anim||state.mix.length<2)return;state.anim=true;$('#polymerize').disabled=true;const onlyOne=[0,100].includes(+$('#ratioRange').value),start=performance.now(),duration=10000;function frame(now){t=Math.min(1,(now-start)/duration);drawScene(t);$('#phaseBar').style.width=t*100+'%';$$('.phase-labels span').forEach((s,i)=>s.classList.toggle('on',t>[0,.23,.74,.92][i]));$('#message').textContent=t<.23?'完整单体靠近，先观察两根并列的 C=C 键……':t<.25?'蓝色标出即将断开的那一根键。':t<.67?'看中间：蓝色的键从中间断开、向两侧退去；另一根键始终保留。':t<.74?'现在每个双键都变成了单键，先停留观察。':t<.92?(onlyOne?'同种单体之间形成新的 C—C 键……':'不同单体之间形成新的 C—C 键……'):(onlyOne?'同种链节连接成均聚物，取代基仍然保留。':'两种链节进入同一条链，取代基仍然保留。');if(t<1)requestAnimationFrame(frame);else{state.anim=false;state.mixedPolymerized=true;const mat=mixResult();reveal(mat);$('#formula').textContent=mat.unit;$('#finalLine').classList.add('show');$('#polymerize').disabled=false;$('#message').textContent=onlyOne?'只有一种单体参与，得到均聚物；调节比例可继续比较共聚结构。':'共同聚合完成。调节比例与聚合度，观察链的组成和长度；实际序列还受聚合条件影响。';updateChainOverview();drawScene(1)}}requestAnimationFrame(frame)}
+function animateMix(){if(state.anim||state.mix.length<2)return;state.anim=true;$('#polymerize').disabled=true;const onlyOne=[0,100].includes(+$('#ratioRange').value),start=performance.now(),duration=14000;function frame(now){t=Math.min(1,(now-start)/duration);drawScene(t);$('#phaseBar').style.width=t*100+'%';$$('.phase-labels span').forEach((s,i)=>s.classList.toggle('on',t>[0,.23,.72,.88][i]));$('#message').textContent=t<.23?'完整单体靠近：先辨认每个 C=C 中并列的两根键。':t<.35?'橙色的一根键从中部裂成两半；另一根始终连接两个碳。':t<.72?'看清两段橙色半键：各自转向相邻单体，并逐渐靠近。':t<.87?(onlyOne?'相邻同种单体的两个半键相接，形成新的 C—C 单键。':'相邻单体的两个半键相接，形成新的 C—C 单键。'):(onlyOne?'同种链节连接成均聚物，取代基仍然保留。':'两种链节进入同一条链，取代基仍然保留。');if(t<1)requestAnimationFrame(frame);else{state.anim=false;state.mixedPolymerized=true;const mat=mixResult();reveal(mat);$('#formula').textContent=mat.unit;$('#finalLine').classList.add('show');$('#polymerize').disabled=false;$('#message').textContent=onlyOne?'只有一种单体参与，得到均聚物；调节比例可继续比较共聚结构。':'共同聚合完成。调节比例与聚合度，观察链的组成和长度；实际序列还受聚合条件影响。';updateChainOverview();drawScene(1)}}requestAnimationFrame(frame)}
 $('#polymerize').onclick=()=>state.mode==='single'?animateSingle():animateMix();$('#mixMode').onclick=enterMix;$('#singleMode').onclick=enterSingle;
 const degrees=[5,10,20,50];$('#degree').oninput=e=>{state.n=degrees[+e.target.value];$('#degreeValue').textContent=state.n;updateChainOverview();drawScene(state.mode==='mix'?(state.mixedPolymerized?1:0):(state.last?1:0))};
 $('#ratioRange').oninput=e=>{const a=+e.target.value,onlyOne=a===0||a===100;$('#ratioA').textContent=a+'%';$('#ratioB').textContent=100-a+'%';$('#polymerize').textContent=onlyOne?'▶ 开始聚合':'▶ 共同聚合';updateChainOverview();drawScene(state.mixedPolymerized?1:0);if(state.mixedPolymerized){const mat=mixResult();$('#materialCode').textContent=mat.code;$('#materialName').textContent=mat.name;$('#materialTrait').textContent=mat.trait;$('#factMonomer').textContent=mat.monomer;$('#factUnit').textContent=mat.unit;$('#factName').textContent=`${mat.code} ${mat.name}`;$('#formula').textContent=mat.unit;$('#message').textContent=onlyOne?'比例端点只有一种单体参与，因此形成均聚物。':'五档比例已同步到链节图示；链节数取最接近整数，真实共聚组成还受聚合条件影响。'}else{$('#formula').textContent=onlyOne?MIX_INFO[a===0?orderedMix()[1]:orderedMix()[0]].name:orderedMix().map(x=>MIX_INFO[x].name).join(' + ');$('#message').textContent=onlyOne?'当前只有一种单体参与；开始聚合将得到均聚物。':'已选两种单体；当前比例将用于链节组成示意。'}};
